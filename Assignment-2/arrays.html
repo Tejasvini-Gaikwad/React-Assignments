@@ -1,0 +1,44 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	Hello World
+	     </h1>
+	     <script>
+	 	   alert("Arrays with let");
+		   let fruits = ["Apple","Orange","Banana"];
+		   fruits.pop(); //delete last element
+		   alert(fruits);
+		   fruits.push("Banana"); //add element at end
+		   alert(fruits);
+		   
+		   alert("Arrays with Const");
+		   const fruitsConst = ["Apple-const","Orange-const","Banana-const"];
+		   fruitsConst.pop(); //delete last element
+		   alert(fruitsConst);
+		   fruitsConst.push("Banana-const"); //add element at end
+		   alert(fruitsConst);
+		   
+		   alert("Object with let");
+		   let user = {
+		   	name : "Tejasvini",
+		   	age:26
+		   };
+		   user.subject = "Maths";
+		   console.log(user);
+		   delete user.age;
+		    console.log(user);
+		    
+		   alert("Object with Const");
+		   const userConst = {
+		   	name_const : "Tejasvini-const",
+		   	age_const:26
+		   };
+		   userConst.subject = "Maths-const";
+		   console.log(userConst);
+		   delete userConst.age_const;
+		    console.log(userConst);
+	     </script>
+	</div>
+     </body>
+</html>

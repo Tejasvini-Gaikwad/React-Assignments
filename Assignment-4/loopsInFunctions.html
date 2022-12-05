@@ -1,0 +1,31 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1>
+	     	JS Fundamentals - Functions | Loops 
+	     </h1>
+		<script>
+		let color = prompt("Enter color from red, green and blue",'');
+		let result = checkReturn(color);
+		alert(result);
+		function checkReturn(color){
+		switch(color){
+			case "red" :
+				    alert("red");
+				    break;
+			case "green" :
+				    alert("green");
+				    break;
+			case "blue" :
+				    alert("blue");
+				    break;
+			default:
+				    alert("No color");
+				    break;
+			}
+			alert('after switch');		
+		}
+		</script>
+	</div>
+     </body>
+</html>

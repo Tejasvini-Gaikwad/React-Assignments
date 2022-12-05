@@ -1,0 +1,24 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1>
+	     	JS Fundamentals - Functions | Without Return
+	     </h1>
+		<script>
+		function test(callback){
+		 callback();
+		}
+
+		function callbackFunc(){
+		 console.log("Calling the callback function")
+		 return 5;
+		}
+		console.log("Without return starts");
+		console.log(test(callbackFunc));
+		console.log(test(() => callbackFunc()))
+		console.log(test(callbackFunc()));
+		console.log("Without return ends");
+		</script>
+	</div>
+     </body>
+</html>

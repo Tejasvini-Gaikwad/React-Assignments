@@ -1,0 +1,32 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	Stringify
+	     </h1>
+	     <script>
+	     	console.log("JSON.stringify on array starts")
+		let arr = [];
+		arr['name'] = "Tejasvini";
+		arr['Designation'] = "Devloper"
+		console.log(arr);
+		console.log(JSON.stringify(arr));
+		console.log("JSON.stringify on array ends")
+		
+		
+		console.log("JSON.stringify on nested objects starts")
+		let obj = {"name":"Tejasvini", "Designation": "Devloper", "Address":[{"city" : "Vita", "pincode":415311}, {"city" : "Vita1", "pincode1":4153111}]};
+		
+		console.log(JSON.stringify(obj));
+		console.log("JSON.stringify on nested objects ends")
+		
+		console.log("JSON.stringify on numbers, strings, undefined, null")
+		console.log("Numbers "+JSON.stringify(10));
+		console.log("String "+JSON.stringify("Test"));
+		console.log("undefined "+JSON.stringify(undefined));
+		console.log("null "+JSON.stringify(null));
+	     </script>
+	</div>
+     </body>
+</html>
+

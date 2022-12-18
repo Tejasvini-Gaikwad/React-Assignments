@@ -1,0 +1,53 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	OBJECTS
+	     </h1>
+	     	<script>
+	     	
+		     	let user = {
+			 	name:"Harry Potter",
+			 	age: 12,
+			 	address: {
+			  		details: ["4", "Privet Drive"],
+			  		area:"Little Whinging",
+			  		city: "Surrey",
+			  		state: "England"
+			 	} 
+			}
+			
+			let clone = {};
+			cloneObj(user,clone)
+			function cloneObj (src, target) {
+				for (let key in src){
+
+				if (typeof src[key] == 'object') {
+				target[key] = {}
+				
+				cloneObj(src[key], target[key]);
+				if(key == 'details'){
+					for(let i in target[key]){
+					if(i ==0){
+					target[key][i] = "5";
+					}
+					
+					}
+				
+				}
+				break;
+				}
+				target[key] = src[key];
+				}
+			}
+			console.log("cloned Object");
+			console.log(clone);
+			console.log("Original Object");
+			console.log(user);
+			//user.address.details;
+	     	</script>
+	     
+	</div>
+     </body>
+</html>
+

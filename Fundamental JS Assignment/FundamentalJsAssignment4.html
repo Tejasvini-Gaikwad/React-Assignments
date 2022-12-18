@@ -1,0 +1,55 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	JS Fundamental Example 4
+	     </h1>
+	     	<script>
+		     	  let userNames = [{
+				"id": 1,
+				"first_name": "Nicki",
+				}, {
+				"id": 2,
+				"first_name": "Raychel",
+				}, {
+				"id": 3,
+				"first_name": "Demetris",
+				}, {
+				"id": 4,
+				"first_name": "Amata",
+				}]
+				let userEmails = [{
+				"id": 2,
+				"email": "rmcgrady1@cpanel.net",
+				}, {
+				"id": 1,
+				"email": "ncrozier0@squarespace.com",
+				}, {
+				"id": 4,
+				"email": "abraiden3@canalblog.com",
+				}, {
+				"id": 3,
+				"email": "dkilshall2@elpais.com",
+			}]
+			let arr4 = [];
+			function mergeById(array1, array2){
+				array1.map((item, i) => {
+				array2.map((item1, j) => {
+				let arr3 = {};
+				if(item.id == item1.id){
+					 arr4.push(Object.assign(arr3, item, item1));
+					
+					}
+				})
+					
+				
+				});
+			}
+			mergeById(userNames, userEmails);
+			console.log(arr4);
+	     	</script>
+	     
+	</div>
+     </body>
+</html>
+

@@ -1,0 +1,41 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	JS Fundamental Advanced
+	     </h1>
+	     	<script>
+	     	
+	     	let user = {
+		  name:"Harry Potter",
+		  age: 12,
+		  address: {
+		  details: ["4", "Privet Drive"],
+		  area:"Little Whinging",
+		  city: "Surrey",
+		  state: "England"
+		  } 
+		}
+		function getNestedKey(obj){
+		  if (obj === null) return null;
+		  let clone = Object.assign({}, obj);
+		  Object.keys(clone).forEach(
+		    key =>
+		      (clone[key] =
+			typeof obj[key] === 'object' ? getNestedKey(obj[key]) : obj[key])
+		  );
+		  if (Array.isArray(obj)) {
+		    clone.length = obj.length;
+		    return Array.from(clone);
+		  }
+		  return clone;
+		
+		}
+		console.log(getNestedKey(user));
+		
+	     	</script>
+	     
+	</div>
+     </body>
+</html>
+

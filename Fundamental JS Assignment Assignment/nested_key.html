@@ -1,0 +1,42 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	JS Fundamental Advanced - Nested Key
+	     </h1>
+	     	<script>
+	     	
+	     	let user = {
+		  name:"Harry Potter",
+		  age: 12,
+		  address: {
+		  details: ["4", "Privet Drive"],
+		  area:"Little Whinging",
+		  city: "Surrey",
+		  state: "England"
+		  } 
+		}
+		function getNestedKey(obj){
+		  if (obj === null) return null;
+		  Object.keys(obj).forEach(
+		    key => {
+		   	if(typeof obj[key] === 'object'){
+		   		Object.values(obj[key]).map((item,index) => {
+		   		if(typeof item === 'object'){
+		   			console.log(item[1]);
+		   		}
+		   		})
+		   	}
+		    })
+		      
+		
+		}
+		
+		console.log(getNestedKey(user));
+		
+	     	</script>
+	     
+	</div>
+     </body>
+</html>
+

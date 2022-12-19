@@ -1,0 +1,38 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	JS Fundamental Example 1
+	     </h1>
+	     	<script>
+	     	 let users = [{
+			"id": 1,
+			"first_name": "Nicki",
+			"email": "ncrozier0@squarespace.com",
+			"date_of_birth": "2009/05/09"
+			}, {
+			"id": 2,
+			"first_name": "Raychel",
+			"email": "rmcgrady1@cpanel.net",
+			"date_of_birth": "1996/11/05"
+		}];
+		
+		let newObj = {};
+		function mapBy(obj, filterByKey){
+		
+		obj.map((item)=>{
+			if(filterByKey in item){
+			console.log(item);
+				return newObj[item[filterByKey]] = item;
+			}
+		})
+		
+		}
+		mapBy(users, 'first_name') 
+		console.log(newObj);	
+	     	</script>
+	     
+	</div>
+     </body>
+</html>
+

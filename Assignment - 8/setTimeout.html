@@ -1,0 +1,22 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	setTimeout Example
+	     </h1>
+	     <script>
+	     	function myfunction(){
+	     		console.log("Printing myfunction");
+	     	}
+	     	const func = async () => {
+		  console.log("Printing before");
+		  setTimeout(myfunction,3000);
+		  console.log("Printing after");
+		}
+		
+		func();
+	     </script>
+	</div>
+     </body>
+</html>
+

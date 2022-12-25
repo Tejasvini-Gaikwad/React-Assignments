@@ -1,0 +1,26 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	Async Await Example
+	     </h1>
+	     <script>
+	     	const fetchData = async () => {
+
+		   let promise = await fetch("https://reqres.in/api/users");
+		   const data = await promise.json();
+		   return data;
+		}
+		let a = '';
+ 		console.log('before fetch data');
+		setTimeout(async () => {
+			a = await fetchData();
+			console.log(a);
+			},3000)
+		console.log('after fetch data');
+		console.log(a,"a");
+	     </script>
+	</div>
+     </body>
+</html>
+

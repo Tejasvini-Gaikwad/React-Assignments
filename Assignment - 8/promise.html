@@ -1,0 +1,23 @@
+<html>
+     <body>
+     	<div style="text-align:center">
+	     <h1 class="main_class">
+	     	Promises Example
+	     </h1>
+	     <script>
+	     	function fetchData(){
+		     	let promise = fetch("https://reqres.in/api/users").then((res) => {
+		     		return res.json();
+		     	}).then((result) => {
+		     		console.log(result, 'result');
+		     	})
+		     	
+		     	
+	     	}
+	     	
+	     	fetchData();
+	     </script>
+	</div>
+     </body>
+</html>
+

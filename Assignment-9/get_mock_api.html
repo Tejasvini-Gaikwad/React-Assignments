@@ -1,0 +1,89 @@
+<html>
+     <head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     </head>
+     <body>
+     	<div style="text-align:center">
+			<h1>
+				User List API <br>	
+			</h1>
+			<div class="col-md-12">
+				<div id="static_data" style="text-align: center;display: none;">
+					<button type="button" class="btn btn-primary" onclick="changeOrder('\'asc\'')">Sort By Name</button>
+					<input type="text" name="search_filter" id="search_filter" onkeyup="getSearchValue()"/>
+				</div><br>
+			
+				<div id="loading" style="align:center">
+					<img id="loading-image" src="loader.gif" alt="Loading..."/>
+				</div>
+				<div id="page_body" style="text-align: center;"></div>
+	     	</div>
+		</div>
+	     <script>
+	     	let search_item = '';
+	     	function getList(sort_by=null, search_item = null){
+	     	   document.getElementById("page_body").innerHTML = '';
+	     	   document.getElementById('loading').style.display = 'block';
+				const data = fetch("https://reqres.in/api/users").then((response)=>{
+					return response.json();	
+				}).then((res) => {
+					let result = res.data;
+					if(sort_by){
+							result.sort(function (a, b) {
+							if (a.first_name < b.first_name) {
+								return -1;
+							}
+							if (a.first_name > b.first_name) {
+								return 1;
+							}
+							return 0;
+						});
+					}
+		     	
+		     		let table_data = '<table class="table table-striped" style="width:100%"><tr><th>ID</th><th>First Name&nbsp;</th><th>Last Name</th><th>Email</th></tr>';
+		     	
+					const new_result = result.filter((val)=>{
+						if(search_item == null){
+							return val;
+						}else if(val.first_name.toLowerCase().includes(search_item.toLowerCase())){
+							document.getElementById('loading').style.display = 'none';
+							return val;
+						}else if(val.last_name.toLowerCase().includes(search_item.toLowerCase())){
+							document.getElementById('loading').style.display = 'none';
+							return val;
+						}else if(val.email.toLowerCase().includes(search_item.toLowerCase())){
+							document.getElementById('loading').style.display = 'none';
+							return val;
+						}
+					}).map((resp) => {
+						return table_data +='<tr><td>'+resp.id+'</td><td>'+resp.first_name+'</td><td>'+resp.last_name+'</td><td>'+resp.email+'</td></tr>';
+					})
+					if(new_result.length == 0){
+						table_data += "<tr><td colspan='4' style='text-align:center'>No Data Found</td></tr>";
+					}	
+		     		table_data +='</table>';
+		     	
+					setTimeout(()=>{
+					document.getElementById("page_body").innerHTML = table_data;
+					document.getElementById('static_data').style.display = 'block';
+					document.getElementById('loading').style.display = 'none';
+					},1000)
+		     });
+		    }
+		    
+		    getList();
+		    function changeOrder(sorting_order){
+		    	getList(sorting_order);
+		    }
+		    
+		    function getSearchValue(){
+		    	search_item = document.getElementById("search_filter").value;
+		    	getList('asc',search_item);
+		    }
+	     </script>
+	</div>
+     </body>
+</html>
+

@@ -39,25 +39,25 @@
 		</div>
 	     <script>
 			function submitApi(){
-				let name = document.getElementById("name").value;
-				let email = document.getElementById("email").value;
-				let mobileNumber = document.getElementById("mobileNumber").value;
-				let check_err = 0;
-				if(name == ''){
+				const name = document.getElementById("name").value;
+				const email = document.getElementById("email").value;
+				const mobileNumber = document.getElementById("mobileNumber").value;
+				const check_err = 0;
+				if(name === ''){
 					check_err++;
 					document.getElementById("name_error").innerHTML = "Name reuired";
 				}else{
 					document.getElementById("name_error").innerHTML = "";
 				}
 
-				if(email == ''){
+				if(email === ''){
 					check_err++;
 					document.getElementById("email_error").innerHTML = "Email reuired";
 				}else{
 					document.getElementById("email_error").innerHTML = "";
 				}
 
-				if(mobileNumber == ''){
+				if(mobileNumber === ''){
 					check_err++;
 					document.getElementById("mobileNumber_error").innerHTML = "Mobile Number reuired";
 				}else{

@@ -1,0 +1,104 @@
+<html>
+     <head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     </head>
+     <body>
+     	<div style="text-align:center">
+			<h1>
+				POST API <br>	
+					<div class="col-md-12">
+						<div class="alert alert-success" id="success" style="display:none;font-size: 14px;">Data saved successfully</div>
+						<div class="alert alert-danger" id="error" style="display:none;font-size: 14px;">Something went wrong</div>
+					</div>
+
+					
+			</h1>
+			<div class="col-md-6  col-md-offset-3">
+				<form id="myForm">
+					<div class="form-group">
+					  <label for="name">Name:</label>
+					  <input type="text" class="form-control" id="name">
+					  <span id="name_error" style="color:red"></span>
+					</div>
+					<div class="form-group">
+					  <label for="email">Email:</label>
+					  <input type="text" class="form-control" id="email">
+					  <span id="email_error" style="color:red"></span>
+					</div>
+					<div class="form-group">
+						<label for="mobileNumber">Mobile Number:</label>
+						<input type="text" class="form-control" id="mobileNumber" maxlength="10">
+						<span id="mobileNumber_error" style="color:red"></span>
+					</div>
+					
+					<button type="button" class="btn btn-default" onClick="submitApi()">Submit</button>
+				</form>
+	     	</div>
+		</div>
+	     <script>
+			function submitApi(){
+				const name = document.getElementById("name").value;
+				const email = document.getElementById("email").value;
+				const mobileNumber = document.getElementById("mobileNumber").value;
+				const check_err = 0;
+				if(name === ''){
+					check_err++;
+					document.getElementById("name_error").innerHTML = "Name reuired";
+				}else{
+					document.getElementById("name_error").innerHTML = "";
+				}
+
+				if(email === ''){
+					check_err++;
+					document.getElementById("email_error").innerHTML = "Email reuired";
+				}else{
+					document.getElementById("email_error").innerHTML = "";
+				}
+
+				if(mobileNumber === ''){
+					check_err++;
+					document.getElementById("mobileNumber_error").innerHTML = "Mobile Number reuired";
+				}else{
+					document.getElementById("mobileNumber_error").innerHTML = "";
+				}
+				if(check_err > 0){
+					return false;
+				}
+				let _data = {
+					name: name,
+					email: email,
+					mobileNumber: mobileNumber
+				}
+
+				let res = fetch('https://httpbin.org/post', {
+				method: "POST",
+				body: JSON.stringify(_data),
+				headers: {"Content-type": "application/json; charset=UTF-8"}
+				})
+				.then(response => response.json()) 
+				.then(json => {
+					console.log(json);
+					document.getElementById('success').style.display = 'block';
+					setTimeout(()=>{document.getElementById("success").style.display="none"},2000)
+					document.getElementById("myForm").reset();
+				})
+				.catch(err => {console.log(err)
+					document.getElementById('error').style.display = 'block';
+					setTimeout(()=>{document.getElementById("error").style.display="none"},2000)
+					
+				});
+				
+			}
+			function close_alert()
+			{
+				document.getElementById("success").close()
+			}
+			
+
+	     </script>
+	</div>
+     </body>
+</html>
+

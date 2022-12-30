@@ -31,20 +31,9 @@
           return data;
         }
       });
-      
-      
-      // const newArrUpdate = list.map(data => {
-      //   if (data.id === id) {
-      //     return {
-      //       ...data,
-      //       completed: true,
-      //     };
-      //   } else {
-      //     return data;
-      //   }
-      // });
       setList(newArrUpdate)
     }
+
     return (
       <div className="App">
         <header className="App-header">

@@ -1,6 +1,7 @@
     import { useState } from "react";
     import Table from 'react-bootstrap/Table';
     import Button from 'react-bootstrap/Button';
+    import Badge from 'react-bootstrap/Badge';
 
     const Todo = ({list,deleteCompletedItems,updateCompleted}) =>{
         const [ids, setIds] = useState([]);
@@ -37,7 +38,7 @@
                             list.map((item)=>{
                                 return <tr key={item.id}>
                                         <td><input type="checkbox" id={item.id} name={item.name} value={item.id} onChange={handleChange} /></td>
-                                        <td>{item.name}</td><td>{item.completed? "Completed" : "Incomplete"}</td>
+                                        <td>{item.name}</td><td>{item.completed? <Badge bg="success">Completed</Badge> : <Badge bg="warning">Incomplete</Badge>}</td>
                                         <td>{!item.completed ? <Button variant="info" onClick={()=>{updateCompleted([item.id])}}>Mark as Complete</Button>:""}{" "}<Button variant="danger" onClick={()=>{deleteCompletedItems([item.id])}}>Delete</Button></td>
                                     </tr>
                             }) :<tr><td colspan="4">No Data Found</td></tr>

@@ -8,7 +8,6 @@
             {id:1, name:"Task 1", completed:false}, {id:2, name:"Task 2", completed:false}, {id:3, name:"Task 3", completed:false},
         ];
         const [ list, setList ] = useState(initialValue);
-        const [nameArr, setNames] = useState([]);
         const [ids, setIds] = useState([]);
         const [name, setName] = useState("");
         const [checked, setChecked] = useState("disabled");
@@ -47,7 +46,6 @@
             }
             list.map(data => {
               updatedArr = [...updatedArr,data.name];
-              setNames(updatedArr);
             });
             if(!updatedArr.includes(name)){
               let id = list.length;

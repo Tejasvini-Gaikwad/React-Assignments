@@ -60,22 +60,24 @@
               alert("Item already exists");
             } 
           }
+        
+        const common_block = <AddTodo name={name} setName={setName} saveList={saveList}/>;
 
         if(error){
-            return <div><AddTodo name={name} setName={setName} saveList={saveList}/><br />{error.message}<div id="loading" style={{"align":"center"}}>
+            return <div>{common_block}<br />{error.message}<div id="loading" style={{"align":"center"}}>
                 <img id="loading-image" src="loader.gif" alt="Loading..."/>
             </div></div>
         }
         if(isLoading){
             return <>
-                <AddTodo name={name} setName={setName} saveList={saveList}/><br /><div id="loading" style={{"align":"center"}}>
+                {common_block}<br /><div id="loading" style={{"align":"center"}}>
                         <img id="loading-image" src="loader.gif" alt="Loading..."/>
                 </div>
             </>
         }
         return (
             <>
-                <AddTodo name={name} setName={setName} saveList={saveList}/>
+                {common_block}
                 <br />
                 {list && <ListTodo list={list} updateCompleted={updateCompleted} deleteCompletedItems={deleteCompletedItems}/>}
             </>

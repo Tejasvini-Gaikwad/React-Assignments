@@ -19,11 +19,10 @@ const ListTodo = ({list, updateCompleted, deleteCompletedItems}) => {
                 </tr>
                 {
                     list.length > 0 ?
-                    list.map((item)=>{
-                        return <tr key={item.id}>
+                    list.map((item)=> <tr key={item.id}>
                             <ListItem item={item} updateCompleted={updateCompleted} deleteCompletedItems={deleteCompletedItems} setIds={setIds} ids={ids} setChecked={setChecked}/>
                         </tr>
-                    }) :<tr><td colSpan="4">No Data Found</td></tr>
+                    ) :<tr><td colSpan="4">No Data Found</td></tr>
                     
                 }
                 

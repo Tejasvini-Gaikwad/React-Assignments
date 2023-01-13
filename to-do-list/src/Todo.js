@@ -39,16 +39,14 @@
             setList(newArrUpdate)
         }
 
-
+        const loading_gif = <img id="loading-image" src="loader.gif" alt="Loading..."/>;
         if(error){
-            return <div><br />{error.message}<div id="loading" style={{"align":"center"}}>
-                <img id="loading-image" src="loader.gif" alt="Loading..."/>
+            return <div><br />{error.message}<div id="loading" style={{"align":"center"}}>{loading_gif}  
             </div></div>
         }
         if(isLoading){
             return <>
-                <br /><div id="loading" style={{"align":"center"}}>
-                        <img id="loading-image" src="loader.gif" alt="Loading..."/>
+                <br /><div id="loading" style={{"align":"center"}}>{loading_gif}
                 </div>
             </>
         }

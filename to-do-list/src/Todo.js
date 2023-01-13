@@ -1,9 +1,5 @@
     import React,{ useEffect, useState } from "react";
     import useFetch from "react-fetch-hook";
-    import Table from 'react-bootstrap/Table';
-    import Button from 'react-bootstrap/Button';
-    import Badge from 'react-bootstrap/Badge';
-    import AddTodo from "./AddTodo";
     import ListTodo from "./ListTodo";
 
     const Todo = ({list,setList}) =>{
@@ -27,16 +23,6 @@
                     return data;  
                 }
             })
-
-            // if(ids.includes(data.id)){
-            //     fetch("http://localhost:8000/Todos/"+data.id,{
-            //         method : 'DELETE'
-            //     }).then((res) => {
-            //         setList(res);
-            //     })
-            //   }
-
-
             setList(newArr);
         }
 
@@ -55,17 +41,13 @@
             setList(newArrUpdate)
         }
 
-
+        const loading_gif = <img id="loading-image" src="loader.gif" alt="Loading..."/>;
         if(error){
-            return <div><br />{error.message}<div id="loading" style={{"align":"center"}}>
-                <img id="loading-image" src="loader.gif" alt="Loading..."/>
-            </div></div>
+            return <div><br />{error.message}<div id="loading" style={{"align":"center"}}>{loading_gif}</div></div>
         }
         if(isLoading){
             return <>
-                <br /><div id="loading" style={{"align":"center"}}>
-                        <img id="loading-image" src="loader.gif" alt="Loading..."/>
-                </div>
+                <br /><div id="loading" style={{"align":"center"}}>{loading_gif}</div>
             </>
         }
         return (

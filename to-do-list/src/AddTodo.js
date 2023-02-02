@@ -45,8 +45,7 @@
             <DatePicker selected={dueDate} dateFormat='dd-MM-yyyy'  onChange={(date) => setDueDate(date)} minDate={new Date()} />
             <br /><br />
             <div>
-                {!isLoading && <Button type="submit">Add</Button>}{' '}
-                {isLoading && <Button type="submit">Add...</Button>}{' '}
+                {!isLoading ? <Button type="submit">Add</Button> : <Button type="submit">Add...</Button>}{' '}
                
                 <Button onClick={()=>setName("")}>Clear</Button>
             </div>

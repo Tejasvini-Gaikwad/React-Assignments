@@ -61,18 +61,17 @@
             } 
           }
         
+        const loading_gif = <img id="loading-image" src="loader.gif" alt="Loading..."/>;
         const common_block = <AddTodo name={name} setName={setName} saveList={saveList}/>;
 
         if(error){
             return <div>{common_block}<br />{error.message}<div id="loading" style={{"align":"center"}}>
-                <img id="loading-image" src="loader.gif" alt="Loading..."/>
+                {loading_gif}
             </div></div>
         }
         if(isLoading){
             return <>
-                {common_block}<br /><div id="loading" style={{"align":"center"}}>
-                        <img id="loading-image" src="loader.gif" alt="Loading..."/>
-                </div>
+                {common_block}<br /><div id="loading" style={{"align":"center"}}>{loading_gif}</div>
             </>
         }
         return (

@@ -10,7 +10,7 @@
         const {isLoading, data, error} = useFetch("http://localhost:8000/Todos");
       
         useEffect(()=>{
-          if(list === undefined || list.length ===0){
+          if(!list){
             setList(data);
           }
         }, [data])

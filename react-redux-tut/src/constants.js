@@ -1,0 +1,9 @@
+export const ADD_USER = 'ADD_USER';
+export const LIST_USER = 'LIST_USER';
+export const LIST_USER_RED = 'LIST_USER_RED';
+export const DELETE_USER = 'DELETE_USER';
+export const DELETE_USER_RED = 'DELETE_USER_RED';
+export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_USER_DATA = 'UPDATE_USER_DATA';
+export const UPDATE_USER_DATA_RED = 'UPDATE_USER_DATA';
+export const UPDATE_USER_RED = 'UPDATE_USER_RED';

@@ -38,14 +38,14 @@
     }
       return (
         <div>
-            <h1>Add To Do</h1>
+            <h1 data-testid="heading">Add To Do</h1>
             <form onSubmit={handleSubmit}>
-            <input type="text" value={name} onChange={(e) => {setName(e.target.value)}} />
+            <input type="text" data-testid="name" value={name} onChange={(e) => {setName(e.target.value)}} />
             <br /><br />
-            <DatePicker selected={dueDate} dateFormat='dd-MM-yyyy'  onChange={(date) => setDueDate(date)} minDate={new Date()} />
+            <DatePicker data-testid="datePicker" selected={dueDate} dateFormat='dd-MM-yyyy'  onChange={(date) => setDueDate(date)} minDate={new Date()} />
             <br /><br />
             <div>
-                {!isLoading ? <Button type="submit">Add</Button> : <Button type="submit">Add...</Button>}{' '}               
+                {!isLoading ? <Button type="submit" data-testid="button" name="submit">Add</Button> : <Button name="submit" type="submit">Add...</Button>}{' '}               
                 <Button onClick={()=>setName("")}>Clear</Button>
             </div>
             </form>

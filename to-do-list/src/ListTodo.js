@@ -25,7 +25,7 @@ const ListTodo = ({list, updateCompleted, deleteCompletedItems, pageNumber, setP
    return <>
         <h1>To Do List</h1>
         <div>
-            <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+            <input type="text" data-testid="search" value={search} onChange={(e)=>setSearch(e.target.value)}/>
             <select style={{"marginLeft":"10px"}} onChange={(e) => setSort(e.target.value)}>
                 <option value="0">A-Z</option>
                 <option value="1">Z-A</option>
